@@ -1,0 +1,45 @@
+.container-page {
+    height: 550px;
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+    border-style: groove;
+}
+
+.grid-item {
+    float: left;
+    display: flex;
+    border-style: groove;
+    max-height: 100%;
+    width: 47%;
+    margin: 55px;
+    padding: 20px;
+}
+
+
+/* .grid-item2 {
+    float: right;
+    display: flex;
+    border-style: groove;
+    max-height: 100%;
+    width: 47%;
+    margin: 20px;
+} */
+
+.img-plus {
+    height: 20px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-items {
+    width: 98%;
+    border-bottom: groove;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-text {
+    float: left;
+}

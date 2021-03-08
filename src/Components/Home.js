@@ -8,27 +8,37 @@ import './Home.css'
 const Home = () => {
     return (
         <>
-            <Container class='container-page'>
-                <Grid class='grid-item'>
-                   <div class="menu-items">
-                       <text class="menu-text">Catogeries</text>
-                       <img class="img-plus"src="https://icons-for-free.com/iconfiles/png/512/add+character+increase+math+plus+sign+icon-1320184998988139546.png"></img>
+            <div className='container-page'>
+                <div className='grid-item1'>
+                   <div className="menu-items">
+                       <text className="menu-text">Catogeries</text>
+                       <i className="fas fa-plus"></i>
                     </div>
-                    <div class="menu-items">
-                       <text class="menu-text">Offers</text>
-                       <img class="img-plus"src="https://icons-for-free.com/iconfiles/png/512/add+character+increase+math+plus+sign+icon-1320184998988139546.png"></img>
+                    <div className="menu-items">
+                       <text className="menu-text">Offers</text>
+                       <i className="fas fa-plus"></i>
                     </div>
-                    <div class="menu-items">
-                       <text class="menu-text">Brands</text>
-                       <img class="img-plus"src="https://icons-for-free.com/iconfiles/png/512/add+character+increase+math+plus+sign+icon-1320184998988139546.png"></img>
+                    <div className="menu-items">
+                       <text className="menu-text">Brands</text>
+                       <i className="fas fa-plus"></i>
                     </div>  
 
     
-                </Grid>
-                <Grid class='grid-item'>
+                </div>
+                <div className='grid-item2'>
+                    <div className="input-group">
+                        
+                        <h2>Search for your products and compare prices</h2>
+                        <div className="input">
+                            <input type="search" id="form1" className="form-control" placeholder='Search or enter the products' />
+                            <button type="button" className="btn btn-primary">
+                                <i className="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
     
-                </Grid>
-            </Container>
+                </div>
+            </div>
         </>
     );
 }

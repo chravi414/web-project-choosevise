@@ -79,7 +79,7 @@
 }
 
 .submenu {
-    text-align: left;
+    text-align: center;
     padding: 10px;
     margin: 0px;
 }
@@ -92,7 +92,9 @@ a {
 }
 
 .submenu a {
-    border-bottom: double;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    border-radius: 10px;
+    margin: 10px;
 }
 
 .card img {

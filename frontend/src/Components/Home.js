@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid } from '@material-ui/core';
 import './Home.css'
-
+import Collapsible from 'react-collapsible';
 
 
 class Home extends React.Component{

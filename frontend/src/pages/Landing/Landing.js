@@ -14,7 +14,7 @@ const Landing = () => {
             <section className="info info1">
                 <div className="info-text">
                     <h2 className="info-header">Online support to compare prices </h2>
-                    <p className="info-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda libero architecto vel molestias exercitationem tempora perferendis corporis, eaque porro doloremque maiores accusamus iusto accusantium!</p>
+                    <p className="info-desc">The main objective of application is to provide users a platform which collects the information about the product of user interest like price, reviews and if there are any offers available in those ecommerce sites. The application can save both time and money for the customers and can also help the ecommerce platforms to get customer attention if they can offer great deals.</p>
                 </div>
                 <div className="info-image">
                     <img src={one} alt="image-1" className="image image1"/>
@@ -23,15 +23,15 @@ const Landing = () => {
 
             <section className="info info2">
                 <div className="info-text">
-                    <h2 className="info-header">Online support to compare prices </h2>
-                    <p className="info-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda libero architecto vel molestias exercitationem tempora perferendis corporis, eaque porro doloremque maiores accusamus iusto accusantium!</p>
+                    <h2 className="info-header">Help End-users save time and money </h2>
+                    <p className="info-desc">“Jeanine, working as a Team Manager in a MNC and a mother of two children who likes to visit different stores for shopping during her teenage. In recent years she is not able to find time in between her professional and family life to go for shopping. So she started purchasing the things online, but she is not able to spend much time to check different e-commerce platforms to compare the deals in each site due to her busy schedules"</p>
                 </div>
                 <div className="info-image">
                     <img src={two} alt="image-1" className="image image1"/>
                 </div>
             </section>
 
-            <section className="info info3">
+            {/* <section className="info info3">
                 <div className="info-text">
                     <h2 className="info-header">Online support to compare prices </h2>
                     <p className="info-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda libero architecto vel molestias exercitationem tempora perferendis corporis, eaque porro doloremque maiores accusamus iusto accusantium!</p>
@@ -39,7 +39,7 @@ const Landing = () => {
                 <div className="info-image">
                     <img src={three} alt="image-1" className="image image1"/>
                 </div>
-            </section>
+            </section> */}
 
             <div className="services">
                 <div className="services-wrapper">
@@ -55,7 +55,7 @@ const Landing = () => {
                                 Price 
                             </h3>
                             <p className="service-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quam.
+                                Get price of the product from different e-commerce sites.
                             </p>
                         </div>
                         <div className="service-card">
@@ -66,7 +66,7 @@ const Landing = () => {
                                 Offers 
                             </h3>
                             <p className="service-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quam.
+                                Know the offers on e-commerce sites and shop.
                             </p>
                         </div>
                         <div className="service-card">
@@ -77,7 +77,7 @@ const Landing = () => {
                                 Share 
                             </h3>
                             <p className="service-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quam.
+                                It is a great idea to share the comparison with friends.
                             </p>
                         </div>
                     </div>

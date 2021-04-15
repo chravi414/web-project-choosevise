@@ -1,0 +1,117 @@
+.container-page {
+    height: 550px;
+    padding: 10px;
+    margin: 10px 35px;
+    display: flex;
+    align-items: center;
+}
+
+.grid-item1 {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    min-height: 50%;
+    height: auto;
+    width: 20%;
+    margin: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+.grid-item2 {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: 70%;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+.img-plus {
+    height: 20px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-items {
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.menu-text {
+    float: left;
+}
+
+.input-group {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.input-group input {
+    height: 35px;
+    width: 700px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.input-group button {
+    height: 35px;
+    width: 35px;
+    background-color: rgb(10, 10, 14);
+    border-style: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    outline: none;
+}
+
+.fa-search {
+    color: white;
+}
+
+.submenu {
+    text-align: left;
+    padding: 10px;
+    margin: 0px;
+}
+
+a {
+    display: block;
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.submenu a {
+    border-bottom: double;
+}
+
+.card img {
+    height: 110px;
+    width: 110px;
+    padding: 10px;
+    align-content: center;
+}
+
+.card-item {
+    width: 200px;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    margin-left: 100px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+}

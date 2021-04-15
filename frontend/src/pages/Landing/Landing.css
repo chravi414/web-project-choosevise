@@ -1,0 +1,66 @@
+.landing-container {
+    width: 100%;
+    /* max-width: 1100px; */
+    margin: 0 auto;
+}
+
+.landing-container .info {
+    background: #101522;
+    color:white;
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info div {
+    width: 40%;
+    margin-right:2rem;
+}
+
+.info-header {
+    font-size: 3rem;
+}
+
+.info-image img {
+    width: 100%;
+}
+
+.landing-container .info2 {
+    background: #fff;
+    color: #101522;
+    flex-direction: row-reverse;
+}
+
+.services {
+    width: 100%;
+    background: #4b59f7;
+    color: #fff;
+}
+
+.services-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+h2.services-title {
+    margin-top:0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.services-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-card {
+    margin-right: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+

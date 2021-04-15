@@ -2,10 +2,10 @@ import React from "react";
 //import { Image, ScrollView, Text } from "react-native";
 
 import "./About.css"
-import Projectdemo from "./../images/projectdemo.png";
-import Walmartlogo from "./../images/walmart.png";
-import Bestbuylogo from "./../images/bestbuylogo.png";
-import Jeanine from "./../images/jeanine.png";
+import Projectdemo from "./../../assets/images/projectdemo.png";
+import Walmartlogo from "./../../assets/images/walmart.png";
+import Bestbuylogo from "./../../assets/images/bestbuylogo.png";
+import Jeanine from "./../../assets/images/jeanine.png";
 
 
 const About = () => {

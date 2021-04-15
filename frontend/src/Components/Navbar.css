@@ -1,14 +1,20 @@
+nav {
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 60px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(58, 44, 44);
+    background: #101522;
 }
 
 li {
     float: left;
-    display: inline-block;
     color: white;
     text-align: center;
     padding: 10px 10px;
@@ -32,19 +38,29 @@ li a:hover {
 }
 
 li img {
-    width: 35px;
-    height: 35px;
-    padding: 5px;
+    width: 55px;
+    height: 55px;
+    /* padding: 5px; */
 }
 
 .footer {
     flex-shrink: 0;
     text-align: center;
-    background-color: rgb(58, 42, 39);
+    background: #101522;
     color: white;
     margin-top: 1rem;
     position: fixed;
     bottom: 0;
     padding: 3px;
     width: 100%;
+}
+
+.nav-item.logo {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+} 
+
+.nav-item.logo span {
+    font-size: 1.5rem;
 }

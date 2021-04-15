@@ -6,37 +6,37 @@
   export const MenubarData = [{
           title: 'Catogeries',
           path: '/',
-          icon: < AiIcons.AiFillHome / > ,
+          icon: <AiIcons.AiFillHome/> ,
           cName: 'nav-text'
       },
       {
           title: 'Offers',
           path: '/',
-          icon: < IoIcons.IoIosPaper / > ,
+          icon: <IoIcons.IoIosPaper/> ,
           cName: 'nav-text'
       },
       {
           title: 'Brand',
           path: '/products',
-          icon: < FaIcons.FaCartPlus / > ,
+          icon: <FaIcons.FaCartPlus/> ,
           cName: 'nav-text'
       },
       {
           title: 'Team',
           path: '/team',
-          icon: < IoIcons.IoMdPeople / > ,
+          icon: <IoIcons.IoMdPeople/> ,
           cName: 'nav-text'
       },
       {
           title: 'Messages',
           path: '/messages',
-          icon: < FaIcons.FaEnvelopeOpenText / > ,
+          icon: <FaIcons.FaEnvelopeOpenText/> ,
           cName: 'nav-text'
       },
       {
           title: 'Support',
           path: '/support',
-          icon: < IoIcons.IoMdHelpCircle / > ,
+          icon: <IoIcons.IoMdHelpCircle/> ,
           cName: 'nav-text'
       }
   ];

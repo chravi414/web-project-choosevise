@@ -1,6 +1,5 @@
 .container-page {
     height: 550px;
-    padding: 10px;
     margin: 10px 35px;
     display: flex;
     align-items: center;
@@ -103,15 +102,15 @@ a {
     align-content: center;
 }
 
-.card-item {
+.brand .card-item {
     width: 200px;
     box-shadow: 3px 3px 3px 3px #ccc;
-    margin-left: 100px;
-    margin-top: 20px;
+    margin: 20px auto 0px auto;
     border-radius: 10px;
+    text-align: center;
 }
 
-.card {
+.brand.card {
     display: flex;
     flex-direction: row;
 }

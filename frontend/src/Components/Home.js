@@ -91,7 +91,7 @@ class Home extends React.Component{
                             </button>
                         </div>
                     </div>
-                    <div className='card'>
+                    <div className='brand card'>
                         <div className='card-item'>
                             <img src="https://i.pinimg.com/originals/08/5f/d8/085fd8f7819dee3b716da73d3b2de61c.jpg"></img>
                             <div className='details'>

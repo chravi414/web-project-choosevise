@@ -3,7 +3,6 @@ import './Landing.css';
 
 import one from './../../assets/images/one.svg';
 import two from './../../assets/images/two.svg';
-import three from './../../assets/images/three.svg';
 import currency from './../../assets/images/currency.svg';
 import discount from './../../assets/images/discount.svg';
 import share from './../../assets/images/share.svg';
@@ -30,16 +29,6 @@ const Landing = () => {
                     <img src={two} alt="image-1" className="image image1"/>
                 </div>
             </section>
-
-            {/* <section className="info info3">
-                <div className="info-text">
-                    <h2 className="info-header">Online support to compare prices </h2>
-                    <p className="info-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda libero architecto vel molestias exercitationem tempora perferendis corporis, eaque porro doloremque maiores accusamus iusto accusantium!</p>
-                </div>
-                <div className="info-image">
-                    <img src={three} alt="image-1" className="image image1"/>
-                </div>
-            </section> */}
 
             <div className="services">
                 <div className="services-wrapper">

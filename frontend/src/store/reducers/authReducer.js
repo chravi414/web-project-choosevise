@@ -1,0 +1,34 @@
+import * as ACTIONS from "./../actions/types";
+const isEmpty = require("is-empty");
+const initialState = {
+  isAuthenticated: false,
+  user: null,
+};
+
+const authReducer = (state = initialState, action) => {
+  console.log(action,"in auth Reducer");
+  console.log(isEmpty(action.payload));
+  switch (action.type) {
+    case ACTIONS.IS_AUTHENTICATED:
+      return {
+        ...state,
+        isAuthenticated: true,
+      };
+    case ACTIONS.SET_CURRENT_USER:
+      return {
+        ...state,
+        isAuthenticated: !isEmpty(action.payload),
+        user: action.payload,
+      };
+    case ACTIONS.RESET_USER:
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export default authReducer;

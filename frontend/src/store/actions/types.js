@@ -4,3 +4,11 @@ export const IS_AUTHENTICATED = "IS_AUTHENTICATED";
 export const SET_ERRORS = "SET_ERRORS";
 export const USER_LOADING = "USER_LOADING";
 export const SET_LOADER = "SET_LOADER";
+export const GET_PRODUCTS = "GET_PRODUCTS";
+export const SHOW_LOADER = "SHOW_LOADER";
+export const HIDE_LOADER = "HIDE_LOADER";
+export const GET_OFFERS = "GET_OFFERS";
+export const SAVE_COMPARISON = "SAVE_COMPARISON";
+export const GET_COMPARISONS = "GET_COMPARISONS";
+
+

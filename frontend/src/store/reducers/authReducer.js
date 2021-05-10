@@ -6,8 +6,7 @@ const initialState = {
 };
 
 const authReducer = (state = initialState, action) => {
-  console.log(action,"in auth Reducer");
-  console.log(isEmpty(action.payload));
+
   switch (action.type) {
     case ACTIONS.IS_AUTHENTICATED:
       return {

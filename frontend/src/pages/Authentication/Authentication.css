@@ -2,7 +2,6 @@
     width: 50%;
     margin: 0 auto;
     background: #fff;
-    /* padding: 1.5rem; */
     margin-top: 2rem;
     border-radius: 10px;
 }
@@ -53,10 +52,10 @@ a.btn-link:hover {
     border-radius: 3px;
     padding: 0.5rem;
     font-size: 1rem;
-    box-shadow: 0 3px 3px #ccc
+    box-shadow: 0 3px 3px #ccc;
 }
 
-.btn {
+.btn.btn-info {
     background: #101522;
     color: #fff;
     padding: 0.7rem 2.5rem;

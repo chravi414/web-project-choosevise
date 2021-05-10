@@ -1,124 +1,143 @@
 import React from 'react';
-import { Container, Grid } from '@material-ui/core';
-import './Home.css'
-import Collapsible from 'react-collapsible';
+import { connect } from 'react-redux';
+import './Home.css';
+import { getProducts, saveComparison } from './../store/actions/productActions';
+import Brands from './Brands';
+import SideMenu from './SideMenu';
+import SearchInput from './SearchInput';
+import Products from './Products';
+import Spinner from './Spinner';
+import ComparisonModal from './ComparisonModal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide } from 'react-toastify';
 
-
-class Home extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            showCatogeries:false,
-            showOffers:false,
-            showBrands:false
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showProducts: false,
+            message: '',
+            productsAddedForComparison: [],
+            selectedProductIds: [],
+            showToast: false,
+            showComparisonModal: false
         }
-        
-            
-        
     }
-    render(){
-    return (
-        <>
-            <div className='container-page'>
-                <div className='grid-item1'>
-                   <div className="menu-items ">
-                       <text className="menu-text">Catogeries</text>
-                       <div>
-                            
-                       <a href='#'><i className="fas fa-plus" onClick={()=>{this.setState({showCatogeries:!this.state.showCatogeries})}}></i></a>
-                        </div>
-                    </div>
-                        
-                            {
-                                this.state.showCatogeries? <div className='submenu'>
-                                    <a><div>Electronics</div></a>
-                                    <a><div>groceries</div></a>
-                                    <a><div>Clothing</div></a>
-                                    <a><div>Jwelery</div></a>
-                                    </div> : null
-                                }
-                        
-                        
-                    
-                    <div className="menu-items">
-                       <text className="menu-text">Offers</text>
-                       <div>
-                            
-                       <a href='#'><i className="fas fa-plus" onClick={()=>{this.setState({showOffers:!this.state.showOffers})}} ></i></a>
-                        </div>
-                        </div>
-                            {
-                                this.state.showOffers? <div className='submenu'>
-                                    <a><div>Electronics</div></a>
-                                    <a><div>groceries</div></a>
-                                    <a><div>Clothing</div></a>
-                                    <a><div>Jwelery</div></a>
-                                    </div> : null
-                                }
-                        
-                        
-                    
-                    <div className="menu-items">
-                       <text className="menu-text">Brands</text>
-                            <div>
-                                
-                                <a href='#'><i className="fas fa-plus" onClick={()=>{this.setState({showBrands:!this.state.showBrands})}} ></i></a>
-                        
-                            </div>
-                            </div>
-                        
-                            {
-                                this.state.showBrands? <div className='submenu'>    
-                                    <div><a href='https://www.amazon.com/'>Amazon</a></div>
-                                    <div><a href='https://www.walmart.com/'>Walmart</a></div>
-                                    <div><a href='https://www.costco.com/'>Costco</a></div>
-                                    <div><a href='https://www.bestbuy.com/'>Best Buy</a></div>
-                                    </div> : null
-                            }
-                        
-                      
 
-    
-                </div>
+    onSearchHandler = async (searchTerm) => {
+        if (searchTerm) {
+            await this.props.getProducts(searchTerm);
+        } else {
+            this.setState({
+                errorMsg: "Please enter a product name to get the results"
+            })
+        }
+    }
+
+    showToast = (message, flag) => {
+        const position = { position: toast.POSITION.TOP_RIGHT };
+        switch (flag) {
+            case "success":
+                toast.success(message, position);
+                break;
+            case "error":
+                toast.error(message, position);
+                break;
+            default:
+                toast.info(message, position);
+                break;
+        }
+    };
+
+
+    comparisonHandler = (product) => {
+        const index = this.state.selectedProductIds.indexOf(product.id);
+        if (index >= 0) {
+            const selectedProds = [...this.state.selectedProductIds];
+            selectedProds.splice(index, 1);
+            const updatedProducts = this.state.productsAddedForComparison.filter(pr => pr.id != product.id);
+            this.setState({
+                selectedProductIds: selectedProds,
+                productsAddedForComparison: updatedProducts
+            })
+        } else {
+            if (this.state.productsAddedForComparison.length < 2) {
+                const productsAddedForComparison = [...this.state.productsAddedForComparison];
+                productsAddedForComparison.push(product);
+                const selectedProductIds = productsAddedForComparison.map(p => p.id)
+                this.setState({
+                    productsAddedForComparison: productsAddedForComparison,
+                    showToast: false,
+                    selectedProductIds: selectedProductIds
+                }, () => console.log(this.state))
+            } else {
+                this.setState({
+                    showToast: true
+                })
+                this.showToast("Maximum of two product can be selected for comparison", "error");
+            }
+        }
+    }
+
+    openComparisonModal = () => {
+        console.log("in Method")
+        this.setState({
+            showComparisonModal: !this.state.showComparisonModal
+        })
+    }
+
+    saveComparisonHandler = async () => {
+        const dataObj = {
+            userId: this.props.user.id,
+            productsArray: [...this.state.productsAddedForComparison]
+        }
+        this.props.saveComparison(dataObj).then(resp => {
+            this.setState({
+                showComparisonModal: false,
+                productsAddedForComparison: [],
+                selectedProductIds: [],
+                showToast: true
+            })
+            this.showToast(resp['data'].message, "success");
+        });
+    }
+
+    render() {
+        return (
+            <div className='container-page'>
+                <SideMenu />
+                {this.state.showToast && <ToastContainer transition={Slide} />}
                 <div className='grid-item2'>
-                    <div className="input-group">
-                        
-                        <h2>Search for your products and compare prices</h2>
-                        <div className="input">
-                            <input type="search" id="form1" className="form-control" placeholder='Search or enter the products' />
-                            <button type="button"  className="btn btn-primary">
-                                <i className="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className='brand card'>
-                        <div className='card-item'>
-                            <img src="https://i.pinimg.com/originals/08/5f/d8/085fd8f7819dee3b716da73d3b2de61c.jpg"></img>
-                            <div className='details'>
-                                <h4><b>Amazon</b></h4>
-                                
-                            </div>
-                            </div>
-                            <div className='card-item'>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Walmart_Spark.svg/722px-Walmart_Spark.svg.png"></img>
-                            <div className='details'>
-                                <h4><b>Walmart</b></h4>
-                                
-                            </div>
-                            </div>
-                            <div className='card-item'>
-                            <img src="https://corporate.aldi.us/fileadmin/fm-dam/logos/ALDI_2017.png"></img>
-                            <div className='details'>
-                                <h4><b>Aldi</b></h4>
-                                
-                            </div>
-                            </div>
-                    </div> 
+                    {this.state.errorMsg && (<div className="error">
+                        <p className="error-msg">{this.state.errorMsg}</p>
+                    </div>)}
+                    <SearchInput onSearchHandler={this.onSearchHandler} />
+                    {this.props.showLoader ? <Spinner /> : this.props.brands.length > 0 ? <Products brands={this.props.brands} addForComparison={this.comparisonHandler} selectedProductIds={this.state.selectedProductIds} />
+                        : <Brands />
+                    }
+                    {this.state.productsAddedForComparison.length === 2 ? (<a className="btn btn-primary compare-btn" onClick={this.openComparisonModal}>Show Comparison</a>) : null}
+                    {this.state.showComparisonModal ? (<ComparisonModal show={this.state.showComparisonModal} saveComparison={this.saveComparisonHandler} closeModal={this.openComparisonModal} productsToCompare={this.state.productsAddedForComparison} isAuthenticated={this.props.isAuthenticated} />) : null}
+
                 </div>
             </div>
-        </>
-    );
-}
+        );
+    }
 }
 
-export default Home;
+
+const mapStateToProps = (state) => ({
+    brands: state.productReducer.brands,
+    showLoader: state.productReducer.showLoader,
+    isAuthenticated: state.authReducer.isAuthenticated,
+    user: state.authReducer.user,
+})
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getProducts: (searchTerm) => dispatch(getProducts(searchTerm)),
+        saveComparison: (postData) => dispatch(saveComparison(postData)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

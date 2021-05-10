@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const product = require('./../models/compare').product;
+const compare = require('./../models/compare').compare;
 
 
 // Load input validation
@@ -98,5 +100,53 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+router.post("/save", (req, res) => {
+  const { productsArray, userId } = req.body;
+  console.log(req.body);
+  const products = [];
+  productsArray.forEach(prod => {
+    const prodObj = new product({
+      brand: prod.brand,
+      name: prod.name,
+      price: prod.price,
+      rating: prod.rating,
+      image: prod.image,
+      link: prod.link,
+    })
+    products.push(prodObj);
+  })
+
+  const newCompareObj = new compare({
+    userId: userId,
+    products: products
+  })
+
+  newCompareObj.save().then(response => {
+    return res.status(201).send({
+      message: "Comparison saved successully",
+    })
+  }).catch(err => {
+    return res.status(400).send({
+      message: "Failed to saved comparison",
+    })
+  })
+})
+
+
+router.post('/comparisons', (req, res) => {
+  const { userId } = req.body;
+  compare.find({ userId: userId }).then(comparisons => {
+    console.log(comparisons)
+    return res.status(200).send({
+      data: comparisons
+    })
+  }).catch(err => {
+    console.log(err);
+    return res.status(400).send({
+      error: "Something went wrong.Please try again."
+    })
+  })
+})
 
 module.exports = router;

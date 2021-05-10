@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const usersRouter = require("./routes/users");
+const scrapperRouter = require("./routes/scrapper");
 
 
 const app = express();
@@ -31,6 +32,7 @@ require("./config/passport")(passport);
 
 // Routes configuration
 app.use("/api/user/", usersRouter);
+app.use("/api/scrapper/", scrapperRouter);
 
 
 

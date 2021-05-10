@@ -4,7 +4,7 @@ import "./Authentication.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "./../../store/actions/authActions";
-import {Form} from 'react-bootstrap';
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -74,7 +74,7 @@ class Login extends React.Component {
         <form className="section-form">
           {errorMessages.length > 0 && (
             <div className="errors row">
-                <div className="messages">{errorMessages}</div>
+              <div className="messages">{errorMessages}</div>
             </div>
           )}
           <div className="form-group row">
@@ -116,7 +116,7 @@ class Login extends React.Component {
           <div className="row align-items-center">
             <div className="col-md-3 offset-md-5">
               <button
-                type="submiy"
+                type="submit"
                 className="btn btn-info btn-Login"
                 onClick={this.loginHandler}
               >
